@@ -13,14 +13,3 @@ app.listen(port, () => {
 app.get('/', (req, res) => {
     res.send('Welcome to my web server!');
 });
-
-//set up the route
-app.get('/comments', (req, res) => {
-    fs.readFile('./comments.json', 'utf-8', (err, data) => {
-        if (err) {
-            res.status(500).send('Error reading file');
-            return;
-        }
-        res.send(data);
-    });
-});
